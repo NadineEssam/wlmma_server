@@ -1591,6 +1591,7 @@ class ActivityRepository
                         'tool_attribute_id' => $toolAttribute->id,
                         'value' => $value['value'],
                         'price' => $value['price'],
+                        // 'terms_conditions' => $value['termsConditions'],
                         'created_at' => now(),
                         'updated_at' => now(),
                     ];

@@ -22,6 +22,7 @@ class CommercialToolRepository
                 $toolModel = CommercialTool::create([
                     'type_id' => $type['type_id'],
                     'price' => $type['price'],
+                    'terms_conditions' => $type['termsConditions'] ?? null,
                     'name_en' => $data['name_en'],
                     'name_ar' => $data['name_ar'],
                     'description_en' => $data['description_en'],
@@ -43,6 +44,7 @@ class CommercialToolRepository
                             'tool_attribute_id' => $toolAttribute->id,
                             'value' => $value['value'],
                             'price' => $value['price'],
+                            'terms_conditions' => $value['termsConditions'],
                             'created_at' => now(),
                             'updated_at' => now(),
                         ];
@@ -146,6 +148,7 @@ class CommercialToolRepository
                     ],
                     [
                         'price' => $value['price'],
+                        'terms_conditions' => $value['termsConditions'],
                     ]
                 );
             }
@@ -237,4 +240,6 @@ class CommercialToolRepository
 
         return $toolModel;
     }
+
+    
 }

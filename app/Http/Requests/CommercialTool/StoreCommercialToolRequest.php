@@ -35,6 +35,7 @@ class StoreCommercialToolRequest extends FormRequest
             'tool_attributes.values' => 'nullable|array',
             'tool_attributes.values.*.value' => 'nullable|string',
             'tool_attributes.values.*.price' => 'nullable|numeric',
+            'tool_attributes.values.*.termsConditions' => 'nullable|string',
             // 'tool_attributes' => 'required|array',
             // 'tool_attributes.attribute_name_en' => 'required|string',
             // 'tool_attributes.attribute_name_ar' => 'required|string',

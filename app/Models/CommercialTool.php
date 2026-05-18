@@ -16,7 +16,8 @@ class CommercialTool extends Model
         'description_ar',
         'user_id',
         'type_id',
-        'price'
+        'price',
+        'terms_conditions'
     ];
 
     public function commercialAttribute()

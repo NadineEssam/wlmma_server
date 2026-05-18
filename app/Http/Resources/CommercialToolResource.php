@@ -21,6 +21,7 @@ class CommercialToolResource extends JsonResource
             'description_en' => $this->description_en,
             'description_ar' => $this->description_ar,
             'price' => $this->price,
+            'terms_conditions' => $this->terms_conditions,
             'sameUsersameProvider' => $this->sameUsersameProvider ?? null,  // ✅ Add this line
             'user_id' => $this->user_id,
             'type_id' => $this->type_id,

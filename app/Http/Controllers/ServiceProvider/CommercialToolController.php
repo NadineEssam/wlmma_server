@@ -114,6 +114,88 @@ class CommercialToolController extends Controller
             'data' => $tool,
         ]);
     }
+    public function getAllSuppliersTools(Request $request)
+{
+    $perPage = $request->per_page ?? 15;
+
+    $tools = CommercialTool::with([
+        'user',
+        'user.userType',
+        'type',
+        'toolImages'
+    ])
+    ->where('type_id', 3)
+    ->paginate($perPage);
+
+    // Full image URL
+    $tools->getCollection()->transform(function ($tool) {
+
+        if ($tool->toolImages) {
+            $tool->toolImages->transform(function ($image) {
+
+                $image->image_path = env('APP_URL') . 'storage/' . ltrim($image->image_path, '/');
+
+                return $image;
+            });
+        }
+
+        return $tool;
+    });
+
+    return response()->json([
+        'message' => 'Suppliers tools retrieved successfully',
+        'message_ar' => 'تم استرجاع أدوات الموردين بنجاح',
+        'data' => CommercialToolResource::collection($tools),
+        'pagination' => [
+            'current_page' => $tools->currentPage(),
+            'last_page' => $tools->lastPage(),
+            'per_page' => $tools->perPage(),
+            'total' => $tools->total(),
+        ],
+    ]);
+}
+
+public function getAllSuppliersToolsForProvider(Request $request)
+{
+    $perPage = $request->per_page ?? 15;
+
+    // priority: request provider_id → fallback to token user
+    $providerId = $request->provider_id ?? $request->user()->id;
+
+    $tools = CommercialTool::with([
+        'user',
+        'user.userType',
+        'type',
+        'toolImages'
+    ])
+    ->where('type_id', 3)
+    ->where('user_id', $providerId)
+    ->paginate($perPage);
+
+    $tools->getCollection()->transform(function ($tool) {
+        if ($tool->toolImages) {
+            $tool->toolImages->transform(function ($image) {
+                $image->image_path = env('APP_URL') . 'storage/' . ltrim($image->image_path, '/');
+                return $image;
+            });
+        }
+        return $tool;
+    });
+
+    return response()->json([
+        'message' => 'Supplier tools retrieved successfully',
+        'message_ar' => 'تم استرجاع أدوات المورد بنجاح',
+        'data' => CommercialToolResource::collection($tools),
+        'pagination' => [
+            'current_page' => $tools->currentPage(),
+            'last_page' => $tools->lastPage(),
+            'per_page' => $tools->perPage(),
+            'total' => $tools->total(),
+        ],
+    ]);
+}
+
+    
 
     // public function update(UpdateCommercialToolRequest $request, $toolId)
     // {
@@ -612,4 +694,8 @@ class CommercialToolController extends Controller
         //     ], 500);
         // }
     }
+
+    
+
+
 }

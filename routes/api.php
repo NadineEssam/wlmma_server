@@ -307,6 +307,8 @@ Route::group(['middleware' => 'auth:users'], function () {
         Route::group(['prefix' => 'commercial-tools'], function () {
             Route::get('/', [CommercialToolController::class, 'index']);
             Route::post('/store', [CommercialToolController::class, 'store']);
+            Route::get('/allSuppliersTools', [CommercialToolController::class, 'getAllSuppliersTools']);
+            Route::get('/allSuppliersToolsForProvider', [CommercialToolController::class, 'getAllSuppliersToolsForProvider']);
             Route::post('/update/{tool}', [CommercialToolController::class, 'update']);
             Route::get('/{tool}', [CommercialToolController::class, 'show']);
             Route::delete('/{tool}', [CommercialToolController::class, 'destroy']);
