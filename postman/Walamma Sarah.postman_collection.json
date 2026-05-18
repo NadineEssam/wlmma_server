@@ -1,0 +1,5804 @@
+{
+	"info": {
+		"_postman_id": "3880a562-93a3-45ca-866f-fa570c5fef01",
+		"name": "Walamma Sarah",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12710844",
+		"_collection_link": "https://roya-team.postman.co/workspace/Team-Workspace~461c359d-c2d8-45d4-820f-356b229f44da/collection/12710844-3880a562-93a3-45ca-866f-fa570c5fef01?action=share&source=collection_link&creator=12710844"
+	},
+	"item": [
+		{
+			"name": "Register & Sign in",
+			"item": [
+				{
+					"name": "verify-otp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"otp\" : \"209205\",\n    \"phone\" : \"+966551234007\"\n   //\"fcm_token\":\"eYTtJ4aiTbDWxQcqVp-eXy:APA91bG2uLOn8cTTXae-2Ljnj8miYe674rFEXhLuhaZjxHYcAd9u3Iy3R53Ya2XNuFvxRP7ryFhvsVoxron_cbGFVd4WGuFDnTUaa6drda4CAuznlwqRDBI\" // OPTIONAL (Use when register)\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/verify-otp",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"verify-otp"
+							]
+						},
+						"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+					},
+					"response": []
+				},
+				{
+					"name": "generate-otp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "+966551234007",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/generate-otp",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"generate-otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Customer Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "231|ZdlaqOxz7IDK6NNCLbW2dqK0GoUyjPnqfu5kR4GQ4006e4c2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "New User for use object",
+									"description": "Optional if signed in by Google",
+									"type": "text"
+								},
+								{
+									"key": "IBAN",
+									"value": "TR820006241979967271128736",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "national_id",
+									"value": "1234567890",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "live_photo",
+									"type": "file",
+									"src": "postman-cloud:///1ef50b42-4c23-4f20-b0a5-08d703002578"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/register/customer",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"register",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "238|4J1a3mNea3p8hiNdYGyjnLHLKKxTolfSHfWKj4ur1f3afb51",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Company",
+									"type": "text"
+								},
+								{
+									"key": "IBAN",
+									"value": "TR820006241979967271128733",
+									"type": "text"
+								},
+								{
+									"key": "TRN",
+									"value": "test123",
+									"type": "text"
+								},
+								{
+									"key": "CR",
+									"value": "test456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/register/company",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"register",
+								"company"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Individual Bussiness Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "236|l1KuNtBDnlv2JDd72jL8j2jJrEDx2ZinL44hCqrz07ac7340",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Tour Guide 2",
+									"type": "text"
+								},
+								{
+									"key": "IBAN",
+									"value": "TR820006241979967271128736",
+									"type": "text"
+								},
+								{
+									"key": "national_id",
+									"value": "1234567890",
+									"type": "text"
+								},
+								{
+									"key": "live_photo",
+									"type": "file",
+									"src": "postman-cloud:///1ef50b42-b03a-4810-ba10-cbe7922d8c18"
+								},
+								{
+									"key": "tour_guide",
+									"value": "1",
+									"description": "1 => yes , 0 => no",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/register/individual",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"register",
+								"individual"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Social Login & Register",
+			"item": [
+				{
+					"name": "Sign In with google",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}api/auth/google",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"auth",
+								"google"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Phone Number",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "231|ZdlaqOxz7IDK6NNCLbW2dqK0GoUyjPnqfu5kR4GQ4006e4c2",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone_number",
+									"value": "+966558502456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/user/add_phoneNumber",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"user",
+								"add_phoneNumber"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service Provider",
+			"item": [
+				{
+					"name": "Activities",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/activities?per_page=50&page=1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"activities"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "50"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Booking Requests",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/activities/booking_requests?per_page=2&page=1&status_id=1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"activities",
+										"booking_requests"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "2"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "status_id",
+											"value": "1",
+											"description": "1 => Waiting, 2 => Cancelled, 3 => Accepted, 4 => Waiting for payment"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Action on Booking Requests",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"book_id\":3,\r\n    \"status_id\":2  // 1 => Waiting, 2 => Cancelled, 3 => Accepted, 4 => Waiting for payment\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/service-provider/activities/booking_requests/action",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"activities",
+										"booking_requests",
+										"action"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "QR code search",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "code",
+											"value": "400998",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/service-provider/activities/qrcode_search",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"activities",
+										"qrcode_search"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Activity data",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/activities/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"activities",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    // 1 => Active , 2 => Not Active\n    // \"duration\": 2,\n    // \"price\": 200.00\n    // \"status_id\": 3\n\n    \"title_ar\":\"تجربة التنقل بين الجزر\",\n    \"title_en\":\"Single Activity\",\n    \"description_ar\":\"تجربة التنقل بين الجزر\",\n    \"description_en\":\"Single Activity\",\n    \"location\":\"cairo\",\n    \"price\":800.00,\n    \"capacity\":1000,\n    \"status_id\":1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/service-provider/activities/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"activities",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "165|0hmm5hQ54CLatYl7AZKj6BbjPg88k7ZvTtz0of4w5877a2c0",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "en",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/activities/57",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"activities",
+										"57"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title_en",
+											"value": "Plan Activity",
+											"type": "text"
+										},
+										{
+											"key": "title_ar",
+											"value": "تجربة التنقل بين الجزر",
+											"type": "text"
+										},
+										{
+											"key": "description_en",
+											"value": "Explore multiple beautiful islands in a day-long adventure.",
+											"type": "text"
+										},
+										{
+											"key": "description_ar",
+											"value": "اكتشف العديد من الجزر الجميلة في مغامرة تدوم طوال اليوم.",
+											"type": "text"
+										},
+										{
+											"key": "city_name_en",
+											"value": "Phuket",
+											"type": "text"
+										},
+										{
+											"key": "city_name_ar",
+											"value": "بوكيت",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "09:00",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "duration",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "800.00",
+											"type": "text"
+										},
+										{
+											"key": "capacity",
+											"value": "30",
+											"type": "text"
+										},
+										{
+											"key": "lat",
+											"value": "7.880447",
+											"type": "text"
+										},
+										{
+											"key": "long",
+											"value": "98.392545",
+											"type": "text"
+										},
+										{
+											"key": "is_tourguideable",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "is_photographer_available",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "activity_type_id",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[0][location_en]",
+											"value": "Phi Phi Islands",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[0][location_ar]",
+											"value": "جزر في في",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[0][starts_at]",
+											"value": "09:30",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[0][ends_at]",
+											"value": "11:30",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[1][location_en]",
+											"value": "James Bond Island",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[1][location_ar]",
+											"value": "جزيرة جيمس بوند",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[1][starts_at]",
+											"value": "12:00",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[1][ends_at]",
+											"value": "14:00",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[2][location_en]",
+											"value": "James Bond Island 2",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_plans[2][location_ar]",
+											"value": "جزيرة جيمس بوند",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_plans[2][starts_at]",
+											"value": "10:30",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_plans[2][ends_at]",
+											"value": "01:30",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "tools[0][name_en]",
+											"value": "Snorkeling Kit",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][name_ar]",
+											"value": "عدة الغطس",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][description_en]",
+											"value": "A complete set for snorkeling in crystal clear waters.",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][description_ar]",
+											"value": "مجموعة كاملة للغطس في المياه الصافية.",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][image][0]",
+											"type": "file",
+											"src": "postman-cloud:///1efaab7a-9b82-4750-a4cb-3c2fba7b1ac6"
+										},
+										{
+											"key": "tools[0][tool_attributes][attribute_name_en]",
+											"value": "Size",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][attribute_name_ar]",
+											"value": "الحجم",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][values][0][value]",
+											"value": "Medium",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][values][0][price]",
+											"value": "100.00",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][values][1][value]",
+											"value": "Large",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][values][1][price]",
+											"value": "120.00",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][name_en]",
+											"value": "Life Jacket",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][name_ar]",
+											"value": "سترة النجاة",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][description_en]",
+											"value": "Safety gear for water activities.",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][description_ar]",
+											"value": "معدات الأمان للأنشطة المائية.",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][image][0]",
+											"type": "file",
+											"src": "postman-cloud:///1efaab78-d509-43e0-a206-49b5a6c7d548"
+										},
+										{
+											"key": "tools[1][tool_attributes][attribute_name_en]",
+											"value": "Size",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][attribute_name_ar]",
+											"value": "الحجم",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][values][0][value]",
+											"value": "Small",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][values][0][price]",
+											"value": "50.00",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][values][1][value]",
+											"value": "Large",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][values][1][price]",
+											"value": "70.00",
+											"type": "text"
+										},
+										{
+											"key": "images[0]",
+											"type": "file",
+											"src": [
+												"postman-cloud:///1efaab78-d509-43e0-a206-49b5a6c7d548",
+												"/Users/ranamustafa/Desktop/touring File /billing.png"
+											]
+										},
+										{
+											"key": "images[1]",
+											"type": "file",
+											"src": [
+												"postman-cloud:///1efaab78-d509-43e0-a206-49b5a6c7d548",
+												"/Users/ranamustafa/Desktop/touring File /chat.png"
+											]
+										},
+										{
+											"key": "activity_days[0]",
+											"value": "saturday",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_days[1]",
+											"value": "monday",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_days[2]",
+											"value": "thursday",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_times[0]",
+											"value": "10:00 AM",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_times[1]",
+											"value": "2:00 PM",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_times[2]",
+											"value": "4:00 PM",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "start_date[0]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "start_date[1]",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "start_date[2]",
+											"value": "3",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/service-provider/activities/store",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"activities",
+										"store"
+									]
+								},
+								"description": "The difference between **single activity** and **plan activity** is the **plan field** if it is filled then it is a plan activity else it is a single activity  \nalso tools are the same"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Offers",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/offers?per_page=50&page=1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"offers"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "50"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Offer data",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/offers/5",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"offers",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title_en\": \"Offer 5\",\n    \"title_ar\": \"عرض 5\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/service-provider/offers/5",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"offers",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "en",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/offers/2",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"offers",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title_en",
+											"value": "Offer 1",
+											"type": "text"
+										},
+										{
+											"key": "title_ar",
+											"value": "عرض 1",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efaab78-d509-43e0-a206-49b5a6c7d548"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/service-provider/offers/store",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"offers",
+										"store"
+									]
+								},
+								"description": "The difference between **single activity** and **plan activity** is the **plan field** if it is filled then it is a plan activity else it is a single activity  \nalso tools are the same"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Commerial Tools",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/commercial-tools?per_page=10",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"commercial-tools"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name_en",
+											"value": "Commerial tool Service provider 80",
+											"type": "text"
+										},
+										{
+											"key": "name_ar",
+											"value": "الاداه التجارية 80",
+											"type": "text"
+										},
+										{
+											"key": "description_en",
+											"value": "description",
+											"type": "text"
+										},
+										{
+											"key": "description_ar",
+											"value": "وصف",
+											"type": "text"
+										},
+										{
+											"key": "tool_type_id",
+											"value": "1",
+											"description": "1 => for rent , 2 => is for sale",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[attribute_name_en]",
+											"value": "Attribute Name in English",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[attribute_name_ar]",
+											"value": "اسم الخاصية بالعربية",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][0][value]",
+											"value": "Value 1",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][0][price]",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][1][value]",
+											"value": "Value 2",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][1][price]",
+											"value": "200",
+											"type": "text"
+										},
+										{
+											"key": "images[0]",
+											"type": "file",
+											"src": "postman-cloud:///1ef50b42-b03a-4810-ba10-cbe7922d8c18"
+										},
+										{
+											"key": "images[1]",
+											"type": "file",
+											"src": "postman-cloud:///1ef50b42-4c23-4f20-b0a5-08d703002578"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/service-provider/commercial-tools/store",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"commercial-tools",
+										"store"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name_en",
+											"value": "Update Commerial tool Service provider 8",
+											"type": "text"
+										},
+										{
+											"key": "name_ar",
+											"value": "تحديث الأداة التجارية الأولى 8",
+											"type": "text"
+										},
+										{
+											"key": "description_en",
+											"value": "description",
+											"type": "text"
+										},
+										{
+											"key": "description_ar",
+											"value": "وصف",
+											"type": "text"
+										},
+										{
+											"key": "tool_type_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[attribute_name_en]",
+											"value": "Updated Attribute Name in English",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[attribute_name_ar]",
+											"value": "اسم الخاصية بالعربية المحدثة",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][0][value]",
+											"value": "Value 3",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][0][price]",
+											"value": "100000",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][1][value]",
+											"value": "Value 4",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][1][price]",
+											"value": "200000",
+											"type": "text"
+										},
+										{
+											"key": "images[0]",
+											"type": "file",
+											"src": "postman-cloud:///1ef50b42-b03a-4810-ba10-cbe7922d8c18"
+										},
+										{
+											"key": "images[1]",
+											"type": "file",
+											"src": "postman-cloud:///1ef50b42-4c23-4f20-b0a5-08d703002578"
+										},
+										{
+											"key": "images[2]",
+											"type": "file",
+											"src": "postman-cloud:///1efaab7a-9b82-4750-a4cb-3c2fba7b1ac6"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/service-provider/commercial-tools/update/10",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"commercial-tools",
+										"update",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "226|02toWFstOFMnkYVzks9peoJlY64p8q8XzLblrhvr5771a495",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/commercial-tools/10",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"commercial-tools",
+										"10"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "26|ZgngNGzi6zjHrT8D7FrWRNvjp2zvPWyIzlRUOpEbcb6f57db",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/commercial-tools/5",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"commercial-tools",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Firebase",
+					"item": [
+						{
+							"name": "Service Provider Notification",
+							"item": [
+								{
+									"name": "Show all notification",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "206|AXFeOVPFfGIg1RwaPTvAHdmNfVpjN5B4RE7vhX32f58fd3ed",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/service-provider/notifications",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"service-provider",
+												"notifications"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "unseen notification count",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "206|AXFeOVPFfGIg1RwaPTvAHdmNfVpjN5B4RE7vhX32f58fd3ed",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/service-provider/notifications/unseen-count",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"service-provider",
+												"notifications",
+												"unseen-count"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "seen-all",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "206|AXFeOVPFfGIg1RwaPTvAHdmNfVpjN5B4RE7vhX32f58fd3ed",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/service-provider/notifications/seen-all",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"service-provider",
+												"notifications",
+												"seen-all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "seen notification",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "206|AXFeOVPFfGIg1RwaPTvAHdmNfVpjN5B4RE7vhX32f58fd3ed",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "notification_id",
+													"value": "1",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}api/service-provider/notifications/seen",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"service-provider",
+												"notifications",
+												"seen"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Test Chat Service Provider",
+							"item": [
+								{
+									"name": "Create Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "208|IkFMA4KrRRxm0eZ0q2gPrMRTl17lYQA0nTPVpAqo78c8ad64",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "{{base_url}}api/service-provider/chat/start",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"service-provider",
+												"chat",
+												"start"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Send Message in Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "197|ypyyQYHCUp6YoFWoi7LPeu2uSgeA0qWtwKFSCrrZ536c2171",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"room_id\": \"f476c176f730b8d15866bb4f7381d57a\",\r\n    \"message\": \"Hello first 2 chat from company to admin\",\r\n    \"receiver_id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}api/service-provider/chat/send",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"service-provider",
+												"chat",
+												"send"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Show Messages in Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "197|ypyyQYHCUp6YoFWoi7LPeu2uSgeA0qWtwKFSCrrZ536c2171",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/service-provider/chat/messages/f476c176f730b8d15866bb4f7381d57a",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"service-provider",
+												"chat",
+												"messages",
+												"f476c176f730b8d15866bb4f7381d57a"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Latest message in chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "197|ypyyQYHCUp6YoFWoi7LPeu2uSgeA0qWtwKFSCrrZ536c2171",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/service-provider/chat/last_chat/f476c176f730b8d15866bb4f7381d57a",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"service-provider",
+												"chat",
+												"last_chat",
+												"f476c176f730b8d15866bb4f7381d57a"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Close Chat Copy",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "208|IkFMA4KrRRxm0eZ0q2gPrMRTl17lYQA0nTPVpAqo78c8ad64",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/service-provider/chat/close/becdd57e8a250cdb8d37fb0f3b7d1f0f",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"service-provider",
+												"chat",
+												"close",
+												"becdd57e8a250cdb8d37fb0f3b7d1f0f"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "saveFcmToken service-provider",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "197|ypyyQYHCUp6YoFWoi7LPeu2uSgeA0qWtwKFSCrrZ536c2171",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fcm_token\": \"eYTtJ4aiTbDWxQcqVp-eXy:APA91bHHgdBfvd8_McVYw6MxkU19pwF8NaHhhBUHu8_U-HaJj7n-NYEHcbeiTqUYCF6FJjPJ9W8y1ll-IoxJtkGrd3UuEvRU1Ic8wi-lM3w5FtUZNRvkZeM\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/service-provider/saveFcmToken",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"saveFcmToken"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Service Provider profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "236|l1KuNtBDnlv2JDd72jL8j2jJrEDx2ZinL44hCqrz07ac7340",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/service-provider/profile",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Customer profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "228|MfnJdSa7iX6A5eIiK4zeJ1BAgYwMMPQbek1IDUChd32d9034",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\":\"Test user\",\r\n    \"last_name\":\"update\",\r\n    \"phone_number\":\"+966551234009\",\r\n    \"location\":\"UAE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/service-provider/update_profile",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"service-provider",
+										"update_profile"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Tour Guides",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}api/tour_guide?per_page=2&page=1",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"tour_guide"
+							],
+							"query": [
+								{
+									"key": "per_page",
+									"value": "2"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Activities",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/activities?per_page=50&page=1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"activities"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "50"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "title",
+											"value": "a",
+											"disabled": true
+										},
+										{
+											"key": "location",
+											"value": "بوكيت",
+											"disabled": true
+										},
+										{
+											"key": "price_from",
+											"value": "200",
+											"disabled": true
+										},
+										{
+											"key": "price_to",
+											"value": "800",
+											"disabled": true
+										},
+										{
+											"key": "duration",
+											"value": "2",
+											"disabled": true
+										},
+										{
+											"key": "date_from",
+											"value": "2024-12-04",
+											"disabled": true
+										},
+										{
+											"key": "date_to",
+											"value": "2024-12-07",
+											"disabled": true
+										},
+										{
+											"key": "rate",
+											"value": "5",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Wish List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "224|adLeNoYV3P7w37yqnosmgv8NiUknOdB2Y5yEWpz0f65ff6c4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/activities/wishlist?per_page=5&page=1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"activities",
+										"wishlist"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "5"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fiter by type",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/activities/type?per_page=5&page=1&activity_type_id=3",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"activities",
+										"type"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "5"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "activity_type_id",
+											"value": "3",
+											"description": "1 => Aerial , 2 => Wild , 3 => Nautical"
+										},
+										{
+											"key": "location",
+											"value": "r",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/activities/2",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"activities",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rate Activity",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "227|yGE3bzeC1n0kwQpoPtwdVkhQM40tShsxw37Slbdt663cc499",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "activity_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "rating",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "Amazing",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/customer/activities/rate",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"activities",
+										"rate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add OR Delete Activity to/from Wishlist",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "224|adLeNoYV3P7w37yqnosmgv8NiUknOdB2Y5yEWpz0f65ff6c4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "activity_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/customer/activities/wishlist/addOrdelete",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"activities",
+										"wishlist",
+										"addOrdelete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Activity Reviews",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{base_url}}api/customer/activities/reviews/2/3",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"activities",
+										"reviews",
+										"2",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Booking",
+					"item": [
+						{
+							"name": "Book Activity",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "241|7QoxnoAcU5fxyuHN4WcW9Xmw4nCWOIPp2yYIKPQi164c265f",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "activity_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "date_Or_day",
+											"value": "Monday",
+											"description": "enter day name like (Friday) if plan== 0 else enter date like (2025-11-25)",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "2:00 PM",
+											"description": "null if plan == 1",
+											"type": "text"
+										},
+										{
+											"key": "capacity",
+											"value": "1",
+											"description": "seats number",
+											"type": "text"
+										},
+										{
+											"key": "photographer",
+											"value": "1",
+											"description": "optional( 1 => yes , 0 => no )",
+											"type": "text"
+										},
+										{
+											"key": "plan",
+											"value": "0",
+											"description": "1 => plan , 0 => single",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{local_url}}api/customer/booking/store",
+									"host": [
+										"{{local_url}}api"
+									],
+									"path": [
+										"customer",
+										"booking",
+										"store"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Waiting List OR Cancel booking",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "202|oUOYnIeRLXPGrRuwktSVZfUwPvVyrieoiw4FWjhl2309c918",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "activity_id",
+											"value": "153",
+											"type": "text"
+										},
+										{
+											"key": "action",
+											"value": "1",
+											"description": "1 => Pending ( waiting ) , 2 => Canceled",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/customer/booking/wait_or_cancel",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"booking",
+										"wait_or_cancel"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Commercial Tools",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "237|szYfER0shU5NEF4RxvB4Z4qcUcmzhIAaYPm4nCj0be73b8d4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/commercial-tools?per_page=5&page=1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"commercial-tools"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "5"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "title",
+											"value": "a",
+											"disabled": true
+										},
+										{
+											"key": "location",
+											"value": "r",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "237|szYfER0shU5NEF4RxvB4Z4qcUcmzhIAaYPm4nCj0be73b8d4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"A trip to egegeg\",\n    \"description\": \"You'll have a bla bla bla\",\n    \"location\": \"Shoraa\",\n    \"date\": \"18-10-2024\",\n    \"time\": \"12:30\",\n    \"duration\": \"5\",\n    \"price\": \"12.36\",\n    \"capacity\": 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/customer/commercial-tools/5",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"commercial-tools",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Wish List Tools",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "237|szYfER0shU5NEF4RxvB4Z4qcUcmzhIAaYPm4nCj0be73b8d4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/commercial-tools/wishlist?per_page=5&page=1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"commercial-tools",
+										"wishlist"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "5"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add OR Delete Tools to/from Wishlist",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "237|szYfER0shU5NEF4RxvB4Z4qcUcmzhIAaYPm4nCj0be73b8d4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "tool_id",
+											"value": "5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/customer/commercial-tools/wishlist/addOrdelete",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"commercial-tools",
+										"wishlist",
+										"addOrdelete"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Tools Reviews",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "224|adLeNoYV3P7w37yqnosmgv8NiUknOdB2Y5yEWpz0f65ff6c4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/commercial-tools/reviews/5/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"commercial-tools",
+										"reviews",
+										"5",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rate Tool",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "224|adLeNoYV3P7w37yqnosmgv8NiUknOdB2Y5yEWpz0f65ff6c4",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "tool_id",
+											"value": "6",
+											"type": "text"
+										},
+										{
+											"key": "rating",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "Amazing",
+											"type": "text"
+										},
+										{
+											"key": "guest_email",
+											"value": "guest2@example.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "guest_name",
+											"value": "Guest User",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/customer/commercial-tools/rate",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"commercial-tools",
+										"rate"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cart",
+					"item": [
+						{
+							"name": "Add to Cart",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "85|I45VE0uTFx0qELoztazmzVIQKY39bYO6fHzVv6ebe4633311",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "device-id",
+										"value": "abc123vvv",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"tools\": [\r\n    { \"tool_id\": 5, \"quantity\": 1 },\r\n    { \"tool_id\": 7, \"quantity\": 2 },\r\n    { \"tool_id\": 8, \"quantity\": 5 }\r\n  ]\r\n}\r\n\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/customer/commercial-tools/cart/add",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"commercial-tools",
+										"cart",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Cart Items",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "85|I45VE0uTFx0qELoztazmzVIQKY39bYO6fHzVv6ebe4633311",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "device_id",
+										"value": "abc123vvv",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/commercial-tools/cart",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"commercial-tools",
+										"cart"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove from cart",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "85|I45VE0uTFx0qELoztazmzVIQKY39bYO6fHzVv6ebe4633311",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "device_id",
+										"value": "abc123xyz",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "tool_id",
+											"value": "5",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/customer/commercial-tools/cart/remove",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"commercial-tools",
+										"cart",
+										"remove"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Clear Cart",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "device_id",
+										"value": "abc123xyz",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/commercial-tools/cart/clear",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"commercial-tools",
+										"cart",
+										"clear"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Customer profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "111|VBxwLVQfaG93Ih566n09UHS072zjJcsC0MZ91Q4Ta234311c",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/profile",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Customer profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "111|VBxwLVQfaG93Ih566n09UHS072zjJcsC0MZ91Q4Ta234311c",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"first_name\":\"test user customer\",\r\n    \"last_name\":\"update\",\r\n    \"phone_number\":\"+966551234017\",\r\n    \"location\":\"UAE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/customer/update_profile/20",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"update_profile",
+										"20"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Firebase",
+					"item": [
+						{
+							"name": "Customer Notification",
+							"item": [
+								{
+									"name": "Show all notification",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "167|ErTpDVh2Vsyl51AurPSsew0obC8l1D7e2T7opKsv69812da6",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/user/notifications",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"notifications"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "unseen notification count",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "168|tOUCupcouaM4l1IRCG6HoXyNepmS8xs0LRxwqPjS438d263e",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/user/notifications/unseen-count",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"notifications",
+												"unseen-count"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "seen-all",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "168|tOUCupcouaM4l1IRCG6HoXyNepmS8xs0LRxwqPjS438d263e",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/user/notifications/seen-all",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"notifications",
+												"seen-all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "seen notification",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "162|PMxqRUAn8mWUNLeU6T9irrXxOyvaNMbdfxQFpKmj7353b7fc",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "notification_id",
+													"value": "1",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}api/user/notifications/seen",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"notifications",
+												"seen"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Test Chat Customer",
+							"item": [
+								{
+									"name": "Create Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "210|Wn5LmQqSzSwy3jbAg2nqQ3Uh17S8cmvFWcPtGtfP2c77ceba",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "{{base_url}}api/user/chat/start",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"chat",
+												"start"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Send Message in Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "210|Wn5LmQqSzSwy3jbAg2nqQ3Uh17S8cmvFWcPtGtfP2c77ceba",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"room_id\": \"a35d042fa935ba0c49f3309403e371aa\",\r\n    \"message\": \"Welcome from customer to admin\",\r\n    \"receiver_id\": 1\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}api/user/chat/send",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"chat",
+												"send"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Latest Message in Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "201|IOMwfOUYIGiDmBSdMYWUG9jsvOlXAJAWFHAwrBK95cb965aa",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/user/chat/last_chat/a35d042fa935ba0c49f3309403e371aa",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"chat",
+												"last_chat",
+												"a35d042fa935ba0c49f3309403e371aa"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Show Messages in Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "201|IOMwfOUYIGiDmBSdMYWUG9jsvOlXAJAWFHAwrBK95cb965aa",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/user/chat/messages/a35d042fa935ba0c49f3309403e371aa",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"chat",
+												"messages",
+												"a35d042fa935ba0c49f3309403e371aa"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Close Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "210|Wn5LmQqSzSwy3jbAg2nqQ3Uh17S8cmvFWcPtGtfP2c77ceba",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/user/chat/close/a35d042fa935ba0c49f3309403e371aa",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"chat",
+												"close",
+												"a35d042fa935ba0c49f3309403e371aa"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "saveFcmToken users only",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "187|iMQmJ88G4f0KU9zLCIO55mS2OZJP6FQPVcVpnQld8fef1c0d",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fcm_token\": \"eYTtJ4aiTbDWxQcqVp-eXy:APA91bHHgdBfvd8_McVYw6MxkU19pwF8NaHhhBUHu8_U-HaJj7n-NYEHcbeiTqUYCF6FJjPJ9W8y1ll-IoxJtkGrd3UuEvRU1Ic8wi-lM3w5FtUZNRvkZeM\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local_url}}api/user/saveFcmToken",
+									"host": [
+										"{{local_url}}api"
+									],
+									"path": [
+										"user",
+										"saveFcmToken"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Offers",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "223|Cj2bH6d3DXYfUB9ZEbGTQpHVFBCvYAW3MdT6n2PIa18b3018",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/offers?per_page=2&page=1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"offers"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "2"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Offer data",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "223|Cj2bH6d3DXYfUB9ZEbGTQpHVFBCvYAW3MdT6n2PIa18b3018",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/customer/offers/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"customer",
+										"offers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Landing Page",
+			"item": [
+				{
+					"name": "All Landing Page Content",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}api/landing-page-content",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"landing-page-content"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show specific page content",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}api/landing-page-content/index/1",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"landing-page-content",
+								"index",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Landing Page Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "200|lh0iV4Mfail62sb0bLX9LPQl1YOdezpLVHMmdO0A0a9a94f4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page_id\": 3,\r\n    \"content\": {\r\n        \"title_ar\": \"مرحبًا 2 بكم في موقعنا\",\r\n        \"title_en\": \"Welcome 2 to our website\",\r\n        \"description_ar\": \"هذه 2 هي محتويات الصفحة الرئيسية.\",\r\n        \"description_en\": \"This 2 is the landing page content.\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/landing-page-content/saveContent",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"landing-page-content",
+								"saveContent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Landing Page Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "200|lh0iV4Mfail62sb0bLX9LPQl1YOdezpLVHMmdO0A0a9a94f4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page_id\": 3,\r\n    \"content\": {\r\n        \"title_ar\": \"مرحبًا 3 بكم في موقعنا\",\r\n        \"title_en\": \"Welcome 3 to our website\",\r\n        \"description_ar\": \"هذه 3 هي محتويات الصفحة الرئيسية.\",\r\n        \"description_en\": \"This 3 is the landing page content.\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/landing-page-content/updateContent",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"landing-page-content",
+								"updateContent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Landing Page Content",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "200|lh0iV4Mfail62sb0bLX9LPQl1YOdezpLVHMmdO0A0a9a94f4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"page_id\": \"2\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}api/landing-page-content/destroy",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"landing-page-content",
+								"destroy"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Authintication",
+					"item": [
+						{
+							"name": "Sign in",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone_number",
+											"value": "+966551234008",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "living24",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/admin/auth/login",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Sign Out",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "59|1rPxCSyWLCxWHQYOT10VGSGQdFsGVtX0bEFT4OTm0fbd71d9",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/admin/logout",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"admin",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Activities",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "238|OMg1qph73p61c0oCmECz0ybtMb2kleGT48EIe55Q18b88c21",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/dashboard/admin_activities/activities/5",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"admin_activities",
+										"activities",
+										"5"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "10",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Activity data",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "220|G6hT7Ve3WYUxb8rSXmgzWl3b4OJYUTM21txUfv9Ba78dad75",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/dashboard/admin_activities/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"admin_activities",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "238|OMg1qph73p61c0oCmECz0ybtMb2kleGT48EIe55Q18b88c21",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "8",
+											"type": "text"
+										},
+										{
+											"key": "title_en",
+											"value": "Plan Activity 2",
+											"type": "text"
+										},
+										{
+											"key": "title_ar",
+											"value": "تجربة التنقل بين الجزر 2",
+											"type": "text"
+										},
+										{
+											"key": "description_en",
+											"value": "Explore multiple beautiful islands in a day-long adventure.",
+											"type": "text"
+										},
+										{
+											"key": "description_ar",
+											"value": "اكتشف العديد من الجزر الجميلة في مغامرة تدوم طوال اليوم.",
+											"type": "text"
+										},
+										{
+											"key": "city_name_en",
+											"value": "Phuket",
+											"type": "text"
+										},
+										{
+											"key": "city_name_ar",
+											"value": "بوكيت",
+											"type": "text"
+										},
+										{
+											"key": "time",
+											"value": "09:00",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "duration",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "price",
+											"value": "800.00",
+											"type": "text"
+										},
+										{
+											"key": "capacity",
+											"value": "30",
+											"type": "text"
+										},
+										{
+											"key": "lat",
+											"value": "7.880447",
+											"description": "fixed or percent",
+											"type": "text"
+										},
+										{
+											"key": "long",
+											"value": "98.392545",
+											"type": "text"
+										},
+										{
+											"key": "is_tourguideable",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "is_photographer_available",
+											"value": "true",
+											"type": "text"
+										},
+										{
+											"key": "activity_type_id",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[0][location_en]",
+											"value": "Phi Phi Islands",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[0][location_ar]",
+											"value": "جزر في في",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[0][starts_at]",
+											"value": "09:30",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[0][ends_at]",
+											"value": "11:30",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[1][location_en]",
+											"value": "James Bond Island",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[1][location_ar]",
+											"value": "جزيرة جيمس بوند",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[1][starts_at]",
+											"value": "12:00",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[1][ends_at]",
+											"value": "14:00",
+											"type": "text"
+										},
+										{
+											"key": "activity_plans[2][location_en]",
+											"value": "James Bond Island 2",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_plans[2][location_ar]",
+											"value": "جزيرة جيمس بوند",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_plans[2][starts_at]",
+											"value": "10:30",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_plans[2][ends_at]",
+											"value": "01:30",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "tools[0][name_en]",
+											"value": "Snorkeling Kit",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][name_ar]",
+											"value": "عدة الغطس",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][description_en]",
+											"value": "A complete set for snorkeling in crystal clear waters.",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][description_ar]",
+											"value": "مجموعة كاملة للغطس في المياه الصافية.",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][attribute_name_en]",
+											"value": "Size",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][attribute_name_ar]",
+											"value": "الحجم",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][values][0][value]",
+											"value": "Medium",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][values][0][price]",
+											"value": "100.00",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][values][1][value]",
+											"value": "Large",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][tool_attributes][values][1][price]",
+											"value": "120.00",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][name_en]",
+											"value": "Life Jacket",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][name_ar]",
+											"value": "سترة النجاة",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][description_en]",
+											"value": "Safety gear for water activities.",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][description_ar]",
+											"value": "معدات الأمان للأنشطة المائية.",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][attribute_name_en]",
+											"value": "Size",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][attribute_name_ar]",
+											"value": "الحجم",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][values][0][value]",
+											"value": "Small",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][values][0][price]",
+											"value": "50.00",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][values][1][value]",
+											"value": "Large",
+											"type": "text"
+										},
+										{
+											"key": "tools[1][tool_attributes][values][1][price]",
+											"value": "70.00",
+											"type": "text"
+										},
+										{
+											"key": "activity_days[0]",
+											"value": "saturday",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_days[1]",
+											"value": "monday",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_days[2]",
+											"value": "thursday",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_times[0]",
+											"value": "10:00 AM",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_times[1]",
+											"value": "2:00 PM",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "activity_times[2]",
+											"value": "4:00 PM",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "start_date[0]",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "start_date[1]",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "start_date[2]",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "tools[0][image][0]",
+											"type": "file",
+											"src": "postman-cloud:///1efaab78-d509-43e0-a206-49b5a6c7d548"
+										},
+										{
+											"key": "tools[1][image][0]",
+											"type": "file",
+											"src": "postman-cloud:///1efaab7a-9b82-4750-a4cb-3c2fba7b1ac6"
+										},
+										{
+											"key": "images[0]",
+											"type": "file",
+											"src": "postman-cloud:///1ef50b42-b03a-4810-ba10-cbe7922d8c18"
+										},
+										{
+											"key": "images[1]",
+											"type": "file",
+											"src": "postman-cloud:///1ef50b42-4c23-4f20-b0a5-08d703002578"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/dashboard/admin_activities/store",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"admin_activities",
+										"store"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "220|G6hT7Ve3WYUxb8rSXmgzWl3b4OJYUTM21txUfv9Ba78dad75",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"duration\" : 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/dashboard/admin_activities/38",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"admin_activities",
+										"38"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "33|UVngStMz3xiOsSWkC1XG4eCzGucRAOW71vP9YNLW725fa401",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/dashboard/admin_activities/19",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"admin_activities",
+										"19"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Commerial Tools",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "238|OMg1qph73p61c0oCmECz0ybtMb2kleGT48EIe55Q18b88c21",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/dashboard/commercial-tools?per_page=10",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"commercial-tools"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "42|goOHI5KE3PBrWToiQQAP2wgjQ9yyQCB7YeErYN5584f86ec6",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name_en",
+											"value": "Commerial tool 9",
+											"type": "text"
+										},
+										{
+											"key": "name_ar",
+											"value": "الاداه التجارية 9",
+											"type": "text"
+										},
+										{
+											"key": "description_en",
+											"value": "description",
+											"type": "text"
+										},
+										{
+											"key": "description_ar",
+											"value": "وصف",
+											"type": "text"
+										},
+										{
+											"key": "tool_type_id",
+											"value": "1",
+											"description": "1 => for rent , 2 => is for sale",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[attribute_name_en]",
+											"value": "Attribute Name in English",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[attribute_name_ar]",
+											"value": "اسم الخاصية بالعربية",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][0][value]",
+											"value": "Value 1",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][0][price]",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][1][value]",
+											"value": "Value 2",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[values][1][price]",
+											"value": "200",
+											"type": "text"
+										},
+										{
+											"key": "images[0]",
+											"type": "file",
+											"src": "postman-cloud:///1ef50b42-b03a-4810-ba10-cbe7922d8c18"
+										},
+										{
+											"key": "images[1]",
+											"type": "file",
+											"src": "postman-cloud:///1ef50b42-4c23-4f20-b0a5-08d703002578"
+										},
+										{
+											"key": "user_id",
+											"value": "3",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/dashboard/commercial-tools/store",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"commercial-tools",
+										"store"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "238|OMg1qph73p61c0oCmECz0ybtMb2kleGT48EIe55Q18b88c21",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name_en",
+											"value": "Update first commercial tool 2",
+											"type": "text"
+										},
+										{
+											"key": "name_ar",
+											"value": "تحديث الأداة التجارية الأولى 2",
+											"type": "text"
+										},
+										{
+											"key": "description_en",
+											"value": "description",
+											"type": "text"
+										},
+										{
+											"key": "description_ar",
+											"value": "وصف",
+											"type": "text"
+										},
+										{
+											"key": "tool_type_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "user_id",
+											"value": "3",
+											"type": "text"
+										},
+										{
+											"key": "tool_attributes[attribute_name_en]",
+											"value": "Updated Attribute Name in English",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "tool_attributes[attribute_name_ar]",
+											"value": "اسم الخاصية بالعربية المحدثة",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "tool_attributes[values][0][value]",
+											"value": "Value 3",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "tool_attributes[values][0][price]",
+											"value": "100000",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "tool_attributes[values][1][value]",
+											"value": "Value 4",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "tool_attributes[values][1][price]",
+											"value": "200000",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "images[0]",
+											"type": "file",
+											"src": "postman-cloud:///1ef50b42-b03a-4810-ba10-cbe7922d8c18"
+										},
+										{
+											"key": "images[1]",
+											"type": "file",
+											"src": "postman-cloud:///1ef50b42-4c23-4f20-b0a5-08d703002578"
+										},
+										{
+											"key": "images[2]",
+											"type": "file",
+											"src": "postman-cloud:///1efaab7a-9b82-4750-a4cb-3c2fba7b1ac6"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/dashboard/commercial-tools/update/6",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"commercial-tools",
+										"update",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "238|OMg1qph73p61c0oCmECz0ybtMb2kleGT48EIe55Q18b88c21",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/dashboard/commercial-tools/5",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"commercial-tools",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "26|ZgngNGzi6zjHrT8D7FrWRNvjp2zvPWyIzlRUOpEbcb6f57db",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/dashboard/commercial-tools/5",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"commercial-tools",
+										"5"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Users",
+					"item": [
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "44|AvjH09oByRvjpMhwoBKGBxWYpLyTbktPJB9ZBED05e7bb474",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{base_url}}api/dashboard/users/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"users",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filtrer users according to types",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "44|AvjH09oByRvjpMhwoBKGBxWYpLyTbktPJB9ZBED05e7bb474",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/dashboard/users/type_filter/2/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"users",
+										"type_filter",
+										"2",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Firebase",
+					"item": [
+						{
+							"name": "Test Chat Admin",
+							"item": [
+								{
+									"name": "Create Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "196|dwC1FuvKfy84Qm1U2xKi2w97b0EPkzk0n0P0GzMef0770ef8",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": []
+										},
+										"url": {
+											"raw": "{{base_url}}api/admin/chat/start",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"admin",
+												"chat",
+												"start"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Send Message in Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "196|dwC1FuvKfy84Qm1U2xKi2w97b0EPkzk0n0P0GzMef0770ef8",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"room_id\":\"f476c176f730b8d15866bb4f7381d57a\",\r\n    \"message\":\"Welcome 3 from admin to customer\",\r\n    \"receiver_id\":6\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}api/admin/chat/send",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"admin",
+												"chat",
+												"send"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Latest message in chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "196|dwC1FuvKfy84Qm1U2xKi2w97b0EPkzk0n0P0GzMef0770ef8",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/admin/chat/last_chat/f476c176f730b8d15866bb4f7381d57a",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"admin",
+												"chat",
+												"last_chat",
+												"f476c176f730b8d15866bb4f7381d57a"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Show Messages in Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "196|dwC1FuvKfy84Qm1U2xKi2w97b0EPkzk0n0P0GzMef0770ef8",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/admin/chat/messages/f476c176f730b8d15866bb4f7381d57a",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"admin",
+												"chat",
+												"messages",
+												"f476c176f730b8d15866bb4f7381d57a"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Close Chat",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "203|pdV669A3bE9ooSQlgrka4OCPbUbZsfJbfSbk3ZfO7d47658a",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/admin/chat/close/a35d042fa935ba0c49f3309403e371aa",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"admin",
+												"chat",
+												"close",
+												"a35d042fa935ba0c49f3309403e371aa"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Admin Notification",
+							"item": [
+								{
+									"name": "Show all notification",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "167|ErTpDVh2Vsyl51AurPSsew0obC8l1D7e2T7opKsv69812da6",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/user/notifications",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"notifications"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "unseen notification count",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "168|tOUCupcouaM4l1IRCG6HoXyNepmS8xs0LRxwqPjS438d263e",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/user/notifications/unseen-count",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"notifications",
+												"unseen-count"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "seen-all",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "168|tOUCupcouaM4l1IRCG6HoXyNepmS8xs0LRxwqPjS438d263e",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{base_url}}api/user/notifications/seen-all",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"notifications",
+												"seen-all"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "seen notification",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "162|PMxqRUAn8mWUNLeU6T9irrXxOyvaNMbdfxQFpKmj7353b7fc",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "notification_id",
+													"value": "1",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{base_url}}api/user/notifications/seen",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"user",
+												"notifications",
+												"seen"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Send notification to user/s",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "207|AYNRVTmh4spSG2r6dQZ8RHL0Z77wbxiMGvYD7OjVf42a22eb",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"user_id\": 8, // add \"send_to_all\": \"false\"\r\n    \"title_en\": \"Test Notification\",\r\n    \"title_ar\": \"إخطار اختبار\",\r\n    \"body_en\": \"This is a test notification.\",\r\n    \"body_ar\": \"هذا إخطار اختبار\",\r\n    \"type\": \"general\",\r\n    \"action\": \"test\",\r\n    \"send_to_all\": \"false\" // true or flase\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{base_url}}api/admin/notifications/push",
+											"host": [
+												"{{base_url}}api"
+											],
+											"path": [
+												"admin",
+												"notifications",
+												"push"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Admin saveFcmToken",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "194|EdcB7xh4bTY9WftdJxobCN7YiWK7Ga4dKqy7NyYZe89f95f2",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fcm_token\": \"eYTtJ4aiTbDWxQcqVp-eXy:APA91bHHgdBfvd8_McVYw6MxkU19pwF8NaHhhBUHu8_U-HaJj7n-NYEHcbeiTqUYCF6FJjPJ9W8y1ll-IoxJtkGrd3UuEvRU1Ic8wi-lM3w5FtUZNRvkZeM\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local_url}}api/admin/saveFcmToken",
+									"host": [
+										"{{local_url}}api"
+									],
+									"path": [
+										"admin",
+										"saveFcmToken"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Manager",
+					"item": [
+						{
+							"name": "Assign Role To Admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "209|p7d04WSLc4rBoEmr1GkY5TVuZSc3k8w4weakH9xK4c2805c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "admin_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "role_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/manager/admin/assign-role",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"manager",
+										"admin",
+										"assign-role"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Assign Role To Admin Copy",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "209|p7d04WSLc4rBoEmr1GkY5TVuZSc3k8w4weakH9xK4c2805c1",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "admin_id",
+											"value": "2",
+											"type": "text"
+										},
+										{
+											"key": "role_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/manager/admin/revoke-role",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"manager",
+										"admin",
+										"revoke-role"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Offers",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "223|Cj2bH6d3DXYfUB9ZEbGTQpHVFBCvYAW3MdT6n2PIa18b3018",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/dashboard/offers?per_page=50&page=1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"offers"
+									],
+									"query": [
+										{
+											"key": "per_page",
+											"value": "50"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Show Offer data",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "223|Cj2bH6d3DXYfUB9ZEbGTQpHVFBCvYAW3MdT6n2PIa18b3018",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/dashboard/offers/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"offers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "223|Cj2bH6d3DXYfUB9ZEbGTQpHVFBCvYAW3MdT6n2PIa18b3018",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title_en\": \"Offer 1\",\n    \"title_ar\": \"عرض 1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}api/dashboard/offers/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"offers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "223|Cj2bH6d3DXYfUB9ZEbGTQpHVFBCvYAW3MdT6n2PIa18b3018",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "lang",
+										"value": "en",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}api/dashboard/offers/1",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"offers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "223|Cj2bH6d3DXYfUB9ZEbGTQpHVFBCvYAW3MdT6n2PIa18b3018",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "title_en",
+											"value": "Offer 2",
+											"type": "text"
+										},
+										{
+											"key": "title_ar",
+											"value": "عرض 2",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "postman-cloud:///1efaab78-d509-43e0-a206-49b5a6c7d548"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}api/dashboard/offers/store",
+									"host": [
+										"{{base_url}}api"
+									],
+									"path": [
+										"dashboard",
+										"offers",
+										"store"
+									]
+								},
+								"description": "The difference between **single activity** and **plan activity** is the **plan field** if it is filled then it is a plan activity else it is a single activity  \nalso tools are the same"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Roles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "209|p7d04WSLc4rBoEmr1GkY5TVuZSc3k8w4weakH9xK4c2805c1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}api/role/list",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"role",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Permissions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "209|p7d04WSLc4rBoEmr1GkY5TVuZSc3k8w4weakH9xK4c2805c1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}api/permission/list",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"permission",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Permission For role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "209|p7d04WSLc4rBoEmr1GkY5TVuZSc3k8w4weakH9xK4c2805c1",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "permission_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "role_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}api/role/create-permission-role",
+							"host": [
+								"{{base_url}}api"
+							],
+							"path": [
+								"role",
+								"create-permission-role"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://wlmma.com/"
+		},
+		{
+			"key": "local_url",
+			"value": "http://127.0.0.1:8000/",
+			"type": "string"
+		}
+	]
+}

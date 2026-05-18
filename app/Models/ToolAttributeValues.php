@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class ToolAttributeValues extends Model
+{
+    use HasFactory;
+    protected $fillable = [
+        'tool_attribute_id',
+        'value',
+        'price'
+    ];
+}

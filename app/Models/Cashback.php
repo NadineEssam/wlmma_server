@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Cashback extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'campaign',
+        'campaign_amount',
+        'order_spent',
+        'order_cashback',
+        'code_cashback',
+    ];
+}

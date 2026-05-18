@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.wlmmatourism.wlmma.dev",
+      "sha256_cert_fingerprints": [
+        "CE:28:CC:14:61:EA:9A:6D:36:9D:B5:8C:5F:7F:D8:C7:CA:FE:FA:74:6A:DE:BA:3D:04:93:F0:25:68:E2:B3:F8"
+      ]
+    }
+  }
+]

@@ -1,0 +1,2 @@
+Invoice Hash (Base64): SKIrf+5onbO5OvSOcPhI4W8Kitm8fUCN9pZJTNwaDKs=
+Invoice Hash (Hex): 48a22b7fee689db3b93af48e70f848e16f0a8ad9bc7d408df696494cdc1a0cab

@@ -1,0 +1,2 @@
+Invoice Hash (Base64): GwVSRYX5DHcTFbjjLwxZwAqmMmouVJAOH9NTmnVoGws=
+Invoice Hash (Hex): 1b05524585f90c771315b8e32f0c59c00aa6326a2e54900e1fd3539a75681b0b

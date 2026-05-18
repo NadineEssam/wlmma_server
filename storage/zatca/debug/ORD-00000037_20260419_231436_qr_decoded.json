@@ -1,0 +1,60 @@
+{
+    "qr_base64_length": 528,
+    "tlv_raw_length": 395,
+    "tags": [
+        {
+            "tag": 1,
+            "name": "Seller Name",
+            "length": 32,
+            "value": "شركة ولمة للسياحة"
+        },
+        {
+            "tag": 2,
+            "name": "VAT Number",
+            "length": 15,
+            "value": "312132926200003"
+        },
+        {
+            "tag": 3,
+            "name": "Timestamp",
+            "length": 19,
+            "value": "2026-04-19T23:14:36"
+        },
+        {
+            "tag": 4,
+            "name": "Total with VAT",
+            "length": 6,
+            "value": "850.10"
+        },
+        {
+            "tag": 5,
+            "name": "VAT Amount",
+            "length": 6,
+            "value": "110.89"
+        },
+        {
+            "tag": 6,
+            "name": "Invoice Hash",
+            "length": 44,
+            "value_hex": "69642f2b6a343231305678386c357259522b4865746c3835426d69616d364c59776a345852304b7732796f3d"
+        },
+        {
+            "tag": 7,
+            "name": "ECDSA Signature",
+            "length": 96,
+            "value_hex": "4d455543494170384732354d4a622f466c4b2f58316b5353523969726c31395344334d71446662617a634c4949747846416945416b61616543374264486d424a7670477335684837725461665875354f7474796c44636253323561446b66733d"
+        },
+        {
+            "tag": 8,
+            "name": "ECDSA Public Key",
+            "length": 88,
+            "value_hex": "3056301006072a8648ce3d020106052b8104000a034200043123259daf3eeb29fcea82320038f50a61e0d85a3000d7182aef9791006a37ba3dda6fa585a1e4ff601675cf761384751516c54fc02442f73338c00c8407d3d1"
+        },
+        {
+            "tag": 9,
+            "name": "ZATCA Signature",
+            "length": 71,
+            "value_hex": "3045022068c287d1d2d75561790df939681813ee6aa06bc78b6aabc44f9d2315015a77b9022100de25b9c06ddfc5bc4c26a4d84f10bde433dcfb1a3c9e8539bffc26622333edd4"
+        }
+    ]
+}

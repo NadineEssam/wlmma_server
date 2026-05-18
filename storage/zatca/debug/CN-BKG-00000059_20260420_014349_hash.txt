@@ -1,0 +1,2 @@
+Invoice Hash (Base64): UPB/JieZBW1Tc+QRmJX76xiMmJOc29PLx4JtsNtpUfY=
+Invoice Hash (Hex): 50f07f262799056d5373e4119895fbeb188c98939cdbd3cbc7826db0db6951f6

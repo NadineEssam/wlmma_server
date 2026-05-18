@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["27T26PL83J.com.wlmmatourism.wlmma.dev"],
+        "paths": [
+          "/trip/*",
+          "/tool/*",
+          "/*"
+        ]
+      }
+    ]
+  }
+}
